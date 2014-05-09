@@ -16,16 +16,16 @@ public class IntToEng {
     	String Eng[] = {"zero","one","two","three","four","five","six","seven","eight","nine"};
     	String Eng1[] = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eightteen","nineteen"};
     	String Eng2[] = {"twenty","thirty","fourty","fifty","sixty","seventy","eightty","ninety"};
-    	if(0<=n && n<10) return Eng[n]+"";
-    	
-    	else if(9<n && 20>n) return Eng1[n-10]+"";
+    	int i=0;
+    	if(0<=n && n<10) {return Eng[n]+"";}
+    	else if(9<n && 20>n) {return Eng1[n-10]+"";}
     	else {
-    		int i=0;
-    		while(n<10){
-    				n = n-10;
-    					i++;
+    			while(n>=10){
+    			n = n-10;
+    			i++;
     		}
-    			return Eng2[i-2]+"-"+Eng[n];
+    		if(n==0) return Eng2[i-2];
+    		else return Eng2[i-2]+"-"+Eng[n]+"";
     			
     	}
     	
