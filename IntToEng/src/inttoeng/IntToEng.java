@@ -19,7 +19,8 @@ public class IntToEng {
     
     	int x=0,y=0,z=0;
     	if(n==0) return "zero";
-    	if(0<n && n<10) {return Eng[n]+"";}
+    	else if(n==10000) return "ten thousand";
+    	else if(0<n && n<10) {return Eng[n]+"";}
     	else if(9<n && 20>n) {return Eng1[n-10]+"";}
     	else {
     			while(1000<n && n<10000) {
