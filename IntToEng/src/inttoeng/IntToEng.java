@@ -13,20 +13,32 @@ public class IntToEng {
     
     // 数値を英訳する変換するメソッド
     static String translateEng(int n) {
-    	String Eng[] = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+    	String Eng[] = {"","one","two","three","four","five","six","seven","eight","nine"};
     	String Eng1[] = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eightteen","nineteen"};
     	String Eng2[] = {"twenty","thirty","fourty","fifty","sixty","seventy","eightty","ninety"};
-    	int i=0;
+    
+    	int x=0,y=0,z=0;
     	if(0<=n && n<10) {return Eng[n]+"";}
     	else if(9<n && 20>n) {return Eng1[n-10]+"";}
     	else {
+    			while(1000<n && n<10000) {
+    				n = n-10000;
+    				x++;
+    			}
+    			while(99<n && n<1000){
+    				n = n-100;
+    					y++;
+    			}
     			while(n>=10){
     			n = n-10;
-    			i++;
+    			z++;
     		}
-    		if(n==0) return Eng2[i-2];
-    		else return Eng2[i-2]+"-"+Eng[n]+"";
-    			
+    		//if(x==0 && y==0 && n==0) return Eng2[z-2];
+    		if(x==0 && y==0) return Eng2[z-2]+"-"+Eng[n]+"";
+    		//else if(x==0 && n ==0) return Eng[y] + " hundred "+Eng2[z-2];
+    		else if(x==0) return Eng[y]+" hundred "+Eng2[z-2]+"-"+Eng[n];
+    		else  return Eng[x]+" thousand "+ Eng[y]+" hendred and "+Eng2[x-2]+"-"+Eng[n];
+    		
     	}
     	
     }
